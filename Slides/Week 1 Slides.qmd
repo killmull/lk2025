@@ -1,0 +1,270 @@
+---
+title: "Research Methods LK2025"
+subtitle: "Introduction to quantitative data & social surveys"
+author: "Killian Mullan"
+format: 
+  revealjs:
+    incremental: true
+editor: visual
+---
+
+## What I want you to be able to do after this week
+
+-   Explain the different types of questions used to collect quantitative data
+-   Recognise the basic structure of a data set
+-   Make the link between questions in a survey and variables in a dataset
+-   Explain the different types of variables in a data set
+-   Conduct, and interpret the results of, descriptive analysis of a single variable in a data set
+
+## Quantitative data
+
+-   Quantitative data is information about [specific]{.underline} aspects of individuals (or other social entities)
+-   These specific aspects are typically social characteristics (e.g., sex, race, income, occupation), experiences and life events, attitudes and other subjective perceptions/feelings
+-   A quantitative approach treats these specific aspects as distinct and therefore measurable
+-   *Measurable* means that [we can ask a specific question]{.underline} to get the information about the specific aspect
+
+## We use closed-ended questions to collect quantitative data {style="font-size:34px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+</br></br> **Closed-ended questions require a numeric response, or present the respondent with a fixed set of answers to choose from**
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+###### Advantages:
+
+-   Easy to complete
+-   Easy to process answers - less scope for error
+-   Clarify meaning of questions: answers provide some more information
+-   Enables valid comparison of responses
+:::
+::::::
+
+## Types of closed-ended survey questions 1 {style="font-size:40px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+</br></br> Questions where the answer is an **unordered** category or characteristic
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+###### Examples:
+
+-   Ethnicity
+-   Tenure type
+-   Main activity status: employed; retired; student…
+-   Marital status
+:::
+::::::
+
+## Types of closed-ended survey questions 2 {style="font-size:40px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+</br></br> Questions where the answer is an **ordered** category or characteristic
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+###### Examples:
+
+-   **Attitudes/views:** Strongly Agree ... Strongly Disagree
+-   **Worries:** Very worried ... Not at all worried
+-   **Satisfaction:** Very satisfied ... Very dissatisfied
+:::
+::::::
+
+## Types of closed-ended survey questions 3 {style="font-size:40px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+</br></br> Questions where the answer is **'yes'** or **'no'**
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+###### Examples:
+
+-   Victim of crime in the past 12 months?
+-   Experience of mental health problems?
+-   Vote in the last election?
+-   Ever been homeless?
+:::
+::::::
+
+## Types of closed-ended survey questions 4 {style="font-size:40px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+</br></br> Questions where the answer is a **number**
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+###### Examples:
+
+-   Hours you usually work each week?
+-   Your weekly income?
+-   How often go to the gym?
+-   Time spent on social media?
+-   Happy with life (0 – 10)?
+:::
+::::::
+
+## Can collect information about some characteristics using different types of questions {style="font-size:32px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+**Age**
+
+What age are you (in years)? \[number\]
+
+What age are you: 18-30 yrs; 31-50 yrs; 51-69 yrs; 70+ yrs \[ordered category\]
+
+Are you aged over 17 years? \[yes / no\]
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+**Employment**
+
+How many hours do you usually work each week? \[number\]
+
+Do you work: full-time; part-time; zero-hours contract; flexible hours? \[category\]
+
+Are you in paid employment? \[yes / no\]
+:::
+::::::
+
+. . .
+
+**Social media?**
+
+## Social Surveys {style="font-size: 36px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+**Gather consistent data from a large representative sample of a given population**
+
+-   National, regional, city
+
+-   Relate to individuals, households, organisations
+
+-   Focus on specific groups in society
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+**May cover a broad range of topics or have a focus on a particular domain**
+
+-   Understanding Society
+
+-   British Social Attitudes Survey
+
+-   Crime Survey of England and Wales
+:::
+::::::
+
+. . .
+
+Data can be collected in-person, via telephone interview, or (increasingly) online
+
+## Crime Survey of England and Wales 2013-2014 (CSEW 2013-14) {style="font-size:34px"}
+
+:::::: columns
+::: {.column .fragment width="49%"}
+**Face-to-Face victimisation survey**
+
+-   Carried out annually
+
+-   Experiences of crime in the past 12 months
+
+-   Perceptions and attitudes relating to crime and criminal justice
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+**Representative sample of individuals 18+ years in private dwellings**
+
+-   Excludes those in group residences (e.g. students in halls, and prisons)
+-   Random subsample (25%) of the whole survey (n=8,843)
+:::
+::::::
+
+. . .
+
+Everyone in the sample asked some questions, while others are asked of a random sub-sample of respondents
+
+## From survey to data set
+
+</br>
+
+. . .
+
+A data set organises participant responses to survey questions in a grid with rows and columns
+
+. . .
+
+Each row is a case: Most often in social surveys this is an individual person
+
+. . .
+
+Each column is a single variable
+
+. . .
+
+Each variable (column) contains participant responses to a specific survey question
+
+## Types of variables in a quantitative data {style="font-size: 36px"}
+
+</br>
+
+There are two main types of variables in a quantitative data set
+
+1.  **Factor** variables are derived from survey questions where the answer is a category / characteristic / ‘yes’-‘no’ type response (both ordered and unordered)
+2.  **Numeric** variables are derived from survey questions where the answer is a number (also known as continuous variables)
+
+-   This week and next week we will concentrate on analysis of factor variables (also referred to as categorical/nominal variables)
+
+# Exploratory descriptive analysis with factor variables in RStudio
+
+## Describing a single factor variable - univariate analysis
+
+-   The starting point for all quantitative data analysis
+
+-   The broad aims are:
+
+:::::: {columns}
+::: {.column .fragment width="49%"}
+**Learn more about the characteristics of survey respondents**
+
+-   Age, Gender, Ethnicity, etc.
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column .fragment width="49%"}
+**Gain initial insight into social outcome that we are analysing**
+
+-   How typical/rare is this outcome among respondents?
+:::
+::::::

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Killian Mullan">
+
+<title>LK2025 Week X</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Week 2 tabset exp_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Week 2 tabset exp_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Week 2 tabset exp_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Week 2 tabset exp_files/libs/quarto-html/popper.min.js"></script>
+<script src="Week 2 tabset exp_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Week 2 tabset exp_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Week 2 tabset exp_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Week 2 tabset exp_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Week 2 tabset exp_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Week 2 tabset exp_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Week 2 tabset exp_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">LK2025 Week X</h1>
+<p class="subtitle lead">Describing factor variables in R</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Killian Mullan </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="this-week-we-are-going-to-use-r-to-conduct-descriptive-analysis-of-a-single-factor-categorical-variable." class="level5">
+<h5 class="anchored" data-anchor-id="this-week-we-are-going-to-use-r-to-conduct-descriptive-analysis-of-a-single-factor-categorical-variable.">This week we are going to use R to conduct descriptive analysis of a single factor (categorical) variable.</h5>
+<p>A factor variable is one where the ‘values’ are categories typically mirroring responses in a survey question. Examples include ethnicity, education qualifications, sex, region. Factor variables with two possible values are sometimes referred to as dichotomous or binary variables variables. Factor variables with three or more possible categories are sometimes referred to as nominal or categorical variables.</p>
+<p>In the lab seminar this week, we are going to work through the following steps:</p>
+<ol type="1">
+<li>Install and load required packages</li>
+<li>Import data</li>
+<li>Produce frequency distribution</li>
+<li>Produce data visualization</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset" style="colour: gray">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">1. Install &amp; load packages</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">2. Importing data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">3. Produce frequency distribution</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">4. Produce data visualization</a></li></ul>
+<div class="tab-content" style="colour: gray">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>We will be exploring factor variables by looking at frequency distributions (tables) and graphs, using functions from the following two packages:</p>
+<ol type="1">
+<li><code>summarytools</code> provides a number of functions to describe factor variables</li>
+<li><code>ggplot2</code> is used to produce graphs</li>
+</ol>
+<p>The following code snippet will install these two packages.</p>
+<p><code>install.packages(c("ggplot2", "summarytools"))</code></p>
+<p>If you are using computers on campus you need to install these packages each time you log on and start RStudio. If you are using your own computer you only need to do this once.</p>
+<p>Copy and paste the R code in the above snippet into a code-chunk in your R Notebook and click on the green triangle. You can also copy directly into the console and hit enter.</p>
+<p>Once the packages are installed, you then need to load them in order to use the functions. The next code-chunk uses the <code>library()</code> to do this. Again, you can copy and paste the R code into a code-chunk in your R Notebook and click on the green triangle. You can also copy directly into the console and hit enter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(summarytools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>You’re now ready to move onto step 2.</strong></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>We will be analyzing data from the <a href="https://www.crimesurvey.co.uk/en/index.html">Crime Survey of England and Wales</a> (CSEW), which is an annual victim survey providing national statistics about crime rates, and collects a wide range of other information relating to crime and the criminal justice system including the police. We will be using an open access unrestricted version of the CSEW from 2013-14. Detailed information about the data we are using can be found <a href="https://doc.ukdataservice.ac.uk/doc/8011/mrdoc/pdf/8011_user_guide_csew_2013-14_teaching_dataset.pdf">here</a>. You should regularly consult this documentation as you use the data.</p>
+<p>You can read (import) many types of data into RStudio. Data is saved in different file formats, and each format has a distinct file extension. A common file type is a <strong>comma separated variable</strong> file (e.g., ‘file.csv’) which is a basic type of excel file. You can also read in standard excel files (e.g., ‘file.xlsx’), and files from other statistical packages such as <em>SPSS</em> (e.g., ‘file.sav’) and <em>Stata</em> (e.g., ‘file.dta’). In this module we will be working mostly with .csv files and .sav (SPSS) files.</p>
+<p>The code below reads the csv file ‘csew.csv’ into RStudio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>csew <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../Data/csew.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The snippet above has different components. We will consider each of these in turn:</p>
+<ul>
+<li><code>csew</code> we begin by giving the data file a name. We can use any name, but pick something that will be easy to type and give you enough information to know what the name refers to (Note: you will likely have a number of data sets in memory in any real-world data analysis project).</li>
+<li><code>&lt;-</code> this is called an assignment operator. Think of this as similar to an = sign.</li>
+<li><code>read.csv()</code> This is the command function to read the csv file. Note that in the above snippet there is R code within the brackets.</li>
+<li>There are two parts to the R code within the brackets, separated by a <code>,</code>:
+<ol type="1">
+<li><p><code>"../Data/KM/csew.csv"</code> This is the name of the file (including file path information), and this is placed in quotes always.</p></li>
+<li><p><code>stringsAsFactors = TRUE</code> This ensures that any values in the data that are strings (text) will be treated as factor (categorical) variables. We could set this to be <code>FALSE</code> and then set the type of each variable individually where appropriate. With this data set we can safely set this to be <code>true</code> and save time doing that - but this may not always be the case for any data set you are using so important to check.</p></li>
+</ol></li>
+</ul>
+<p>After you run this code, you should see the data set loaded into the Environment pane in RStudio, with information given about the number of observations (obs.) and the number of variables. This corresponds the number of rows and columns respectively.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/Screenshot%202025-06-24%20at%2018.23.07.png" class="img-fluid figure-img" width="372"></p>
+<figcaption>Environment pane showing <em>csew</em> data loaded into RStudio</figcaption>
+</figure>
+</div>
+<p><strong>You’re now ready to move onto step 3.</strong></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<section id="having-installed-the-necessary-packages-and-imported-the-data-we-are-now-ready-to-produce-a-frequency-distribution-for-a-single-factor-variable." class="level5">
+<h5 class="anchored" data-anchor-id="having-installed-the-necessary-packages-and-imported-the-data-we-are-now-ready-to-produce-a-frequency-distribution-for-a-single-factor-variable.">Having installed the necessary packages and imported the data, we are now ready to produce a frequency distribution for a single factor variable.</h5>
+<p>The following code-chunk will produce a frequency distribution for the variable <code>bcsvictim</code> producing a table showing the proportion of people in the sample who were a victim of crime and the proportion who were not.</p>
+<p>There are two things to note in this code-chunk:</p>
+<ol type="1">
+<li><code>with(csew,</code> You always have to state clear what data set you are using in R. One way of doing this is to use the <code>with()</code> function. In words, we are staying: ‘with this data set, do this’. There may not seem much point in this when working with a single data set, but in any real-world project you are likely to have several data sets in play.</li>
+<li><code>freq(bcsvictim)</code> This R code produces the frequency distribution for the variable <code>bcsvicim</code>. If you wanted to look at another variable, simply change the name inserted in the brackets in this part of the code.</li>
+</ol>
+<p>As before, copy/paste into a new code-chunk in your R notebook and click the green triangle to run, or copy this code directly into the console and hit enter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(csew, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">freq</span>(bcsvictim))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Frequencies  
+csew$bcsvictim  
+Type: Factor  
+
+                              Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+--------------------------- ------ --------- -------------- --------- --------------
+      Not a victim of crime   7460     84.36          84.36     84.36          84.36
+            Victim of crime   1383     15.64         100.00     15.64         100.00
+                       &lt;NA&gt;      0                               0.00         100.00
+                      Total   8843    100.00         100.00    100.00         100.00</code></pre>
+</div>
+</div>
+<p>The first column of the table output, labelled <code>Freq</code>, shows the number of people in the sample who have not been a victim of crime (7460) and number who have been a victim of crime (1383). You can see a third row in this table labelled <code>&lt;NA&gt;</code>. This refers to cases where there is missing information about the variable. In this particular example there are zero cases with missing data for this variable.</p>
+<p>The next column, labelled <code>% Valid</code>, shows the %s who are a victim/not a victim of crime <em>excluding</em> any cases that are missing. As there are no cases missing, this is identical to the column labelled <code>% Total</code> which report the %s <em>including</em> any cases that are missing.</p>
+<p>The column labelled <code>% Valid Cum.</code> reports the cumulative proportion. In this column, each % is added the proportion in the row immediately prior working from top to bottom. This is not particularly informative when you only have two response categories, but can be useful when you have more.</p>
+<p>The code snippet below produces a more compact table removing the cumulative proportions and the row corresponding to missing data <code>&lt;NA&gt;</code>. You can undo either of these restrictions by changing the conditions from <code>FALSE</code> to <code>TRUE</code>. It is <strong>important</strong> <strong>always</strong> to check for missing values when you first begin to explore variables in a data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(csew, <span class="fu">freq</span>(bcsvictim, <span class="at">cumul =</span> <span class="cn">FALSE</span>, <span class="at">report.nas =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Frequencies  
+csew$bcsvictim  
+Type: Factor  
+
+                              Freq        %
+--------------------------- ------ --------
+      Not a victim of crime   7460    84.36
+            Victim of crime   1383    15.64
+                      Total   8843   100.00</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Explore other variables in the data set.</strong> Produce frequency distributions for other variables in the data set, by changing the code relating to the variable name. Remember you can view the data using the <code>View(csew)</code> function, and get the names of all the variables using the <code>names(csew)</code> function. Also check the documentation for the data. After you’ve had some practice, move onto step 4.</p>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<section id="data-visualizations-are-a-great-way-explore-data-and-uncover-key-relationships-between-variables." class="level5">
+<h5 class="anchored" data-anchor-id="data-visualizations-are-a-great-way-explore-data-and-uncover-key-relationships-between-variables.">Data visualizations are a great way explore data and uncover key relationships between variables.</h5>
+<p>The code-chunk below produces a simple bar chart for the variable <code>bcsvictim</code> showing the number of people who have been a victim of crime or not. Though this graph is not the most visually appealing, it emphasizes that the vast majority of people in the sample have not been a victim of crime.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(csew, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> bcsvictim, <span class="at">fill =</span> bcsvictim)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Week-2-tabset-exp_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="deconstructing-this-code" class="level5">
+<h5 class="anchored" data-anchor-id="deconstructing-this-code">Deconstructing this code</h5>
+<p>There is a lot of unpack in this R code:</p>
+<ul>
+<li><code>ggplot()</code> The first line of code is the main command function, which has a number of parts in the brackets. These are described as follow:
+<ol type="1">
+<li><code>csew,</code> The first part of code in brackets specifies the data set we are using the make the graph. Note the essential <code>,</code>.</li>
+<li>The second part of the code in brackets is the <code>aes()</code> function. <code>aes</code> is short for aesthetics and this code specifies what data you are plotting. There are two parts to this:
+<ol type="i">
+<li><code>x = bcsvictim</code> specifies the variable being plotted on the x (horizontal) axis.</li>
+<li><code>fill = bcsvictim</code> specifies that the bars will have different (fill) colours based on values of the variable. If omitted, the bar graph will default to a single colour (grey).</li>
+</ol></li>
+</ol></li>
+<li><code>geom_bar()</code> The second line of code is the command function that determines the type of chart you are making - in this case a bar chart. Note also the <code>+</code> at the end of the first line, connecting this to the second line.</li>
+</ul>
+<p>There are many options to change the look of any data visualization, and we will explore some of these as we progress through the module. There are lots of online resources also.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Explore other variables in the data set.</strong> Produce simple bar charts for different variables in the data set.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
